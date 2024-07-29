@@ -8,6 +8,7 @@ import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 
 import useBlogPost from '../hooks/useBlogPost';
 import { humanizeDate } from '../utils/date';
+import Comment from './Comment';
 
 function BlogPost() {
   const { fileName } = useParams();
@@ -58,6 +59,8 @@ function BlogPost() {
           </Markdown>
         </div>
       </article>
+
+      <Comment />
     </Layout>
   );
 }

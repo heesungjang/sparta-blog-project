@@ -3,7 +3,6 @@ import styles from '../styles/header.module.css';
 import Logo from './Logo';
 
 function Header({ theme, onThemeChange }) {
-  console.log('theme', theme);
   const isDarkMode = theme === 'dark';
 
   return (
