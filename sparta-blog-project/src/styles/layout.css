@@ -56,11 +56,7 @@ html {
 
 /* GLOBAL STYLES */
 ::selection {
-  background-color: var(--color-selection-background) !important;
-  color: var(--color-selection-text) !important;
   background-image: none !important;
-  -webkit-text-fill-color: var(--color-selection-text) !important;
-  -moz-text-fill-color: var(--color-selection-text) !important;
   background-image: none !important;
   background-clip: revert !important;
   -webkit-background-clip: revert !important;
@@ -68,10 +64,7 @@ html {
 }
 
 html {
-  color: var(--color-text);
-  font-family: var(--font-family), sans-serif;
   letter-spacing: -0.03125em;
-  background: var(--color-backdrop-highlight);
 }
 
 body {
@@ -79,23 +72,6 @@ body {
   min-height: 100svh;
   display: flex;
   flex-direction: column;
-  background: var(--color-backdrop);
-  border-bottom: 3px solid var(--color-decorative-600);
-}
-
-body::before {
-  content: '';
-  position: absolute;
-  z-index: 0;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 50vh;
-  background: linear-gradient(
-    to top,
-    var(--color-backdrop),
-    var(--color-backdrop-highlight)
-  );
 }
 
 body > main {
@@ -106,9 +82,7 @@ body > main {
 em {
   font-style: italic;
 }
-code {
-  font-family: var(--font-family-mono);
-}
+
 h1 {
   font-size: 1.5rem;
   font-weight: 650;
@@ -132,14 +106,12 @@ p {
 p code {
   display: inline-block;
   font-size: 0.9em;
-  background: var(--color-inline-code-bg);
   padding: 3px 6px;
   margin: -0.25em -1px;
   border-radius: 3px;
 }
 a {
   color: currentColor;
-  text-decoration-color: var(--color-primary);
   text-decoration-thickness: 2px;
   text-underline-offset: 0.125em;
   font-weight: 500;

@@ -1,7 +1,7 @@
 .wrapper {
   width: 100%;
   max-width: 750px;
-  margin-bottom: 32px;
+  margin-bottom: 58px;
 }
 
 .title {
@@ -12,15 +12,12 @@
   transition: color 200ms;
   margin-bottom: 0.25rem;
 }
-.title:hover {
-  color: var(--color-primary);
-}
+
 .wrapper time {
   display: block;
   margin-bottom: 1rem;
   font-weight: 500;
   font-size: 1.125rem;
-  color: var(--color-decorative-900);
 }
 .wrapper p {
   font-size: 1.125rem;
@@ -30,7 +27,6 @@
 .arrow {
   display: inline-block;
   font-family: 'Monaco', monospace;
-  color: var(--color-primary);
   transition: transform 200ms;
   font-weight: 400;
 }

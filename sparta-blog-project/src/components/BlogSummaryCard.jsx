@@ -1,12 +1,12 @@
-import { format } from 'date-fns';
 import styles from '../styles/blogSummaryCard.module.css';
 import { Link } from 'react-router-dom';
+import { humanizeDate } from '../utils/date';
 
 function BlogSummaryCard({ blogPost }) {
   const { blogTitle, blogAbstraction, blogPublishedAt, blogFileName } =
     blogPost;
 
-  const humanizedDate = format(new Date(blogPublishedAt), 'MMMM do, yyyy');
+  const humanizedDate = humanizeDate(blogPublishedAt);
 
   return (
     <div className={styles.wrapper}>

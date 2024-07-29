@@ -1,34 +1,11 @@
-import { useEffect, useState } from 'react';
 import Layout from './components/Layout';
 import styles from './styles/homepage.module.css';
 import BlogSummaryCard from './components/BlogSummaryCard';
 import mainPageImg from './assets/Main_Page_Img.png';
-import { PUBLISHED_POSTS } from './posts';
+import useBlogPosts from './hooks/useBlogPosts';
 
 function App() {
-  const [blogPosts, setBlogPosts] = useState([]);
-  useEffect(() => {
-    const getPosts = async () => {
-      const posts = await Promise.all(
-        Object.entries(PUBLISHED_POSTS).map(async ([fileName, post]) => {
-          const response = await fetch(`/posts/${fileName}`);
-          const blogContent = await response.text();
-
-          return {
-            blogTitle: post.title,
-            blogContent,
-            blogFileName: fileName,
-            blogAbstraction: post.abstraction,
-            blogPublishedAt: post.publishedAt,
-          };
-        })
-      );
-
-      setBlogPosts(posts);
-    };
-
-    getPosts();
-  }, []);
+  const blogPosts = useBlogPosts();
   return (
     <Layout>
       <div className={styles.wrapper}>

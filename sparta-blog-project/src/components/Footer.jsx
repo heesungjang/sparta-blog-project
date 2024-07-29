@@ -1,11 +1,9 @@
 import styles from '../styles/footer.module.css';
-import Decorative from './Decorative';
 import Logo from './Logo';
 
 function Footer() {
   return (
     <div className={styles.wrapper}>
-      <Decorative />
       <div className={styles.content}>
         <div>
           <Logo mobileAlignment='center' />

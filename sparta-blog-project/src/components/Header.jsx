@@ -1,5 +1,4 @@
-'use client';
-
+import { DarkModeSwitch } from 'react-toggle-dark-mode';
 import styles from '../styles/header.module.css';
 import Logo from './Logo';
 
@@ -9,7 +8,9 @@ function Header() {
       <Logo />
 
       <div className={styles.actions}>
-        <button className={styles.action}></button>
+        <button className={styles.action}>
+          <DarkModeSwitch />
+        </button>
       </div>
     </header>
   );

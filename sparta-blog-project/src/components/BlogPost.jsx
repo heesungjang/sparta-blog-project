@@ -1,40 +1,17 @@
-import { useEffect, useState } from 'react';
+import Layout from './Layout';
 import { useParams } from 'react-router-dom';
-import { format } from 'date-fns';
 import styles from '../styles/blogPost.module.css';
 import Markdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { docco } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import Layout from './Layout';
-import { PUBLISHED_POSTS } from '../posts';
+
+import useBlogPost from '../hooks/useBlogPost';
+import { humanizeDate } from '../utils/date';
 
 function BlogPost() {
   const { fileName } = useParams();
-  const [post, setPost] = useState(null);
-
-  useEffect(() => {
-    const getPost = async () => {
-      const post = PUBLISHED_POSTS[fileName];
-
-      const blogTitle = post.title;
-      const blogFileName = fileName;
-      const blogAbstraction = post.abstraction;
-      const blogPublishedAt = post.publishedAt;
-      const response = await fetch(`/posts/${blogFileName}`);
-      const blogContent = await response.text();
-
-      setPost({
-        blogTitle,
-        blogContent,
-        blogFileName,
-        blogAbstraction,
-        blogPublishedAt,
-      });
-    };
-
-    getPost();
-  }, [fileName]);
+  const post = useBlogPost(fileName);
 
   if (!post) {
     return null;
@@ -48,8 +25,7 @@ function BlogPost() {
             <h1>{post.blogTitle}</h1>
             <p>
               <time dateTime={post.blogPublishedAt}>
-                작성일:{' '}
-                {format(new Date(post.blogPublishedAt), 'MMMM do, yyyy')}
+                작성일: {humanizeDate(post.blogPublishedAt)}
               </time>
             </p>
           </div>
