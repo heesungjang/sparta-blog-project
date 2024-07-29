@@ -6,6 +6,7 @@ import useBlogPosts from './hooks/useBlogPosts';
 
 function App() {
   const blogPosts = useBlogPosts();
+
   return (
     <Layout>
       <div className={styles.wrapper}>

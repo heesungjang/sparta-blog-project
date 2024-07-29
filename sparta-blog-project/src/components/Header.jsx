@@ -2,14 +2,16 @@ import { DarkModeSwitch } from 'react-toggle-dark-mode';
 import styles from '../styles/header.module.css';
 import Logo from './Logo';
 
-function Header() {
+function Header({ theme, onThemeChange }) {
+  console.log('theme', theme);
+  const isDarkMode = theme === 'dark';
+
   return (
     <header className={styles.wrapper}>
       <Logo />
-
       <div className={styles.actions}>
         <button className={styles.action}>
-          <DarkModeSwitch />
+          <DarkModeSwitch checked={isDarkMode} onChange={onThemeChange} />
         </button>
       </div>
     </header>
